@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>立方体</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 150px auto;
+            position: relative;
+            transition:all 5s;
+            transform: rotateX(-15deg) rotateY(30deg);
+            /* 让元素出现3d效果 */
+            transform-style: preserve-3d;
+            /*perspective: 1000px;*/
+        }
+
+        .box div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            opacity: 0.5;
+            transition:all 2s;
+            background-size:contain;
+        }
+
+        .front {
+            background-color: blue;
+            background-image: url(C3-20160712-3D/bg.jpg);
+            transform: translateZ(100px);
+        }
+
+        .back {
+            background-color: red;
+            transform: translateZ(-100px);
+            background-image: url(C3-20160712-3D/bg2.jpg);
+        }
+
+        .left {
+            background-color: yellow;
+            transform: rotateY(90deg) translateZ(-100px);
+            background-image: url(C3-20160712-3D/bg3.jpg);
+        }
+
+        .right {
+            background-color: pink;
+            transform: rotateY(90deg) translateZ(100px);
+            background-image: url(C3-20160712-3D/bg4.jpg);
+        }
+
+        .top {
+            background-color: green;
+            transform: rotateX(90deg) translateZ(100px);
+            background-image: url(C3-20160712-3D/bg5.jpg);
+        }
+
+        .bottom {
+            background-color: black;
+            transform: rotateX(90deg) translateZ(-100px);
+            background-image: url(C3-20160712-3D/bg6.png);
+        }
+        .box:hover{
+            transform:rotateX(-150deg) rotateY(300deg);
+        }
+        .box:hover .front {
+            transform: translateZ(200px);
+        }
+        .box:hover .back {
+            transform: translateZ(-200px);
+        }
+        .box:hover .left{
+            transform: rotateY(90deg) translateZ(-200px);
+        }
+        .box:hover .right{
+            transform: rotateY(90deg) translateZ(200px);
+        }
+        .box:hover .top{
+            transform: rotateX(90deg) translateZ(200px);
+        }
+        .box:hover .bottom{
+            transform: rotateX(90deg) translateZ(-200px);
+        }
+        @keyframes zhuan{
+            from{
+                transform: rotateX(-15deg) rotateY(30deg) rotateZ(0deg);
+            }
+            to{
+                transform:rotateX(-375deg) rotateY(390deg)rotateZ(360deg);
+            }
+        }
+        .box{
+            animation:zhuan 3s linear infinite;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <!-- front -->
+    <div class="front"></div>
+    <!--  back-->
+    <div class="back"></div>
+    <!-- left -->
+    <div class="left"></div>
+    <!-- right -->
+    <div class="right"></div>
+    <!-- top -->
+    <div class="top"></div>
+    <!-- bottom -->
+    <div class="bottom"></div>
+</div>
+</body>
+
+</html>
